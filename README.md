@@ -69,7 +69,7 @@ This can be created by executing the docker command:
 * In addition, if you were planning to connect transmission to the vpnrouter container, you **MUST** expose the ports required for transmission on the vpnrouter continer before joing the containers.
 To do this you would need to add the following to the vpnrouter create statement so that when you connect the transmission container it's ports are visible.
 
--p 9091:9091 -p 51413:51413 -p 51413:51413/udp # for Transmission
+`-p 9091:9091 -p 51413:51413 -p 51413:51413/udp # for Transmission`
 
 
 ## Info
