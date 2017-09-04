@@ -66,6 +66,12 @@ This can be created by executing the docker command:
 **Connecting other containers to vpnrouter container**
 * To connect other containers to the vpn router, you will need to ensure that the other containers are started with `--net=container:vpnrouter` or the name of the vpnrouter container you started. Personally I like to name them by VPN exit location so I know where each router is directed.
 
+* In addition, if you were planning to connect transmission to the vpnrouter container, you **MUST** expose the ports required for transmission on the vpnrouter continer before joing the containers.
+To do this you would need to add the following to the vpnrouter create statement so that when you connect the transmission container it's ports are visible.
+
+-p 9091:9091 -p 51413:51413 -p 51413:51413/udp # for Transmission
+
+
 ## Info
 
 * To monitor the logs of the container in realtime
