@@ -53,8 +53,18 @@ This can be created by executing the docker command:
 
 * Running it on a NAS. This particular container works perfectly on my QNAP NAS without interfering with the existing VPN running on the NAS itself.
 
-**Connecting other containers**
-* In order to connect other containers to the vpn router, you will need to ensure that the other containers are started with `--net=container:vpnrouter` or the name of the vpnrouter container you started. Personally I like to name them by VPN exit location so I know where each router is directed.
+* Automatic login to VPN - you may need to edit your ovpn/config file(s) to add the following command to allow automatic login to your vpn provider
+
+ * existing ovpn/config file contains the following line:  
+`auth-user-pass`
+
+ * Modify the auth-user-pass line in the ovpn/config file to include the following path:  
+ `auth-user-pass  /config/openvpn-credentials.txt`  
+ This tells the OpenVPN client to read the username/password you have provided as an environment vairiable, rather than waiting for user input from the keyboard.
+
+
+**Connecting other containers to vpnrouter container**
+* To connect other containers to the vpn router, you will need to ensure that the other containers are started with `--net=container:vpnrouter` or the name of the vpnrouter container you started. Personally I like to name them by VPN exit location so I know where each router is directed.
 
 ## Info
 
