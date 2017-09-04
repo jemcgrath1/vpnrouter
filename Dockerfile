@@ -1,10 +1,14 @@
 FROM alpine:latest
 MAINTAINER jemcgrath1
 
-# set version label
+#Set Versioning and Labels
 ARG BUILD_DATE
-ARG VERSION
-LABEL build_version="jemcgrath1/vpnrouter version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+ARG VCS_REF
+
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-url="https://github.com/jemcgrath1/vpnrouter.git" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.schema-version="1.0.0-rc1"
 
 # environment variables
 ENV OPENVPN_USERNAME=**None** \
