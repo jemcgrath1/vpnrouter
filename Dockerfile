@@ -1,6 +1,11 @@
 FROM alpine:latest
 MAINTAINER jemcgrath1
 
+# set version label
+ARG BUILD_DATE
+ARG VERSION
+LABEL build_version="jemcgrath1/vpnrouter version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+
 # environment variables
 ENV OPENVPN_USERNAME=**None** \
     OPENVPN_PASSWORD=**None** \
