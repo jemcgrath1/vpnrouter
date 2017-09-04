@@ -1,9 +1,7 @@
 
 # jemcgrath1/vpnrouter
-<br />
-[![](https://images.microbadger.com/badges/image/jemcgrath1/vpnrouter.svg)](https://microbadger.com/images/jemcgrath1/vpnrouter "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/jemcgrath1/vpnrouter.svg)](https://microbadger.com/images/jemcgrath1/vpnrouter "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/commit/jemcgrath1/vpnrouter.svg)](https://microbadger.com/images/jemcgrath1/vpnrouter "Get your own commit badge on microbadger.com")
+
+[![](https://images.microbadger.com/badges/image/jemcgrath1/vpnrouter.svg)](https://microbadger.com/images/jemcgrath1/vpnrouter "Get your own image badge on microbadger.com")[![](https://images.microbadger.com/badges/version/jemcgrath1/vpnrouter.svg)](https://microbadger.com/images/jemcgrath1/vpnrouter "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/commit/jemcgrath1/vpnrouter.svg)](https://microbadger.com/images/jemcgrath1/vpnrouter "Get your own commit badge on microbadger.com")
 
 This image creates an OpenVPN Client container that can be used to connect to your VPN provider (expressvpn / PIA etc). I built this to allow my other docker containers to treat this container like a vpnrouter.
 
