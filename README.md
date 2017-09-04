@@ -1,5 +1,9 @@
-# jemcgrath1/vpnrouter
 
+# jemcgrath1/vpnrouter
+<br />
+[![](https://images.microbadger.com/badges/image/jemcgrath1/vpnrouter.svg)](https://microbadger.com/images/jemcgrath1/vpnrouter "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/jemcgrath1/vpnrouter.svg)](https://microbadger.com/images/jemcgrath1/vpnrouter "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/commit/jemcgrath1/vpnrouter.svg)](https://microbadger.com/images/jemcgrath1/vpnrouter "Get your own commit badge on microbadger.com")
 
 This image creates an OpenVPN Client container that can be used to connect to your VPN provider (expressvpn / PIA etc). I built this to allow my other docker containers to treat this container like a vpnrouter.
 
@@ -63,13 +67,15 @@ This can be created by executing the docker command:
  This tells the OpenVPN client to read the username/password you have provided as an environment vairiable, rather than waiting for user input from the keyboard.
 
 
-**Connecting other containers to vpnrouter container**
-* To connect other containers to the vpn router, you will need to ensure that the other containers are started with `--net=container:vpnrouter` or the name of the vpnrouter container you started. Personally I like to name them by VPN exit location so I know where each router is directed.
+**Connecting other containers to vpnrouter container**  
 
-* In addition, if you were planning to connect transmission to the vpnrouter container, you **MUST** expose the ports required for transmission on the vpnrouter continer before joing the containers.
-To do this you would need to add the following to the vpnrouter create statement so that when you connect the transmission container it's ports are visible.
+  :bangbang: To connect other containers to the vpn router, you will need to ensure that the other containers are started with `--net=container:vpnrouter` or the name of the vpnrouter container. Personally I like to name them by VPN exit location so I know where each router is directed.
 
-`-p 9091:9091 -p 51413:51413 -p 51413:51413/udp # for Transmission`
+  :bangbang: In addition, if you were planning to connect other containers (i.e transmission, sonarr etc) to the vpnrouter container, you **MUST** expose the ports required for application on the **vpnrouter** container before joing the containers.
+
+   *i.e.*  To do this you would need to add the following additional ports to the vpnrouter create statement so that when you connect the transmission container vpnrouter makes the following ports are visible.
+    For Transmission#
+  `-p 9091:9091 -p 51413:51413 -p 51413:51413/udp `
 
 
 ## Info
