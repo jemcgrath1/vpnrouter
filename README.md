@@ -5,7 +5,7 @@ This image creates an OpenVPN Client container that can be used to connect to yo
 
 This works really well, for providng the same VPN service to multiple containers and/or running multiple vpnrouter containers on the same host.
 
-[![OpenVPN](https://raw.githubusercontent.com/jemcgrath1/vpnrouter/master/openvpntech_logo1.png)]
+![OpenVPN](https://raw.githubusercontent.com/jemcgrath1/vpnrouter/master/openvpntech_logo1.png)
 
 ## Usage
 
