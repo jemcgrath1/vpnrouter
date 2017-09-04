@@ -71,8 +71,7 @@ This can be created by executing the docker command:
 
   :bangbang: In addition, if you were planning to connect other containers (i.e transmission, sonarr etc) to the vpnrouter container, you **MUST** expose the ports required for application on the **vpnrouter** container before joing the containers.
 
-   *i.e.*  To do this you would need to add the following additional ports to the vpnrouter create statement so that when you connect the transmission container vpnrouter makes the following ports are visible.
-    For Transmission#
+   *i.e.*  To do this you would need to add the following additional ports to the vpnrouter create statement so that when you connect the transmission container vpnrouter makes the following ports are visible. For example you would add the following ports for Transmission:  
   `-p 9091:9091 -p 51413:51413 -p 51413:51413/udp `
 
 
