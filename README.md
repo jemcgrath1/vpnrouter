@@ -5,6 +5,8 @@ This image creates an OpenVPN Client container that can be used to connect to yo
 
 This works really well, for providng the same VPN service to multiple containers and/or running multiple vpnrouter containers on the same host.
 
+It is based on Alpine 3.6, for shell access whilst the container is running use `docker exec -it vpnrouter /bin/bash`.
+
 ![OpenVPN](https://raw.githubusercontent.com/jemcgrath1/vpnrouter/master/openvpntech_logo1.png)
 
 ## Usage
@@ -23,6 +25,7 @@ docker create \
 -e OPENVPN_PASSWORD=<password from vpn provider> \
 jemcgrath1/vpnrouter
 ```
+  <br />
 
 ## Parameters
 
@@ -38,7 +41,7 @@ The following provides more details on the parameters of the containerL
 * `-e OPENVPN_USERNAME` - The username from your vpn provider to use the ovpn/config file
 * `-e OPENVPN_PASSWORD` - The password from your vpn provider to use the ovpn/config file
 
-It is based on Alpine 3.6, for shell access whilst the container is running use `docker exec -it vpnrouter /bin/bash`.
+
 
 ## Important Notes
 
