@@ -17,7 +17,7 @@ It is based on Alpine 3.6, for shell access whilst the container is running use 
 docker create \
 --name=vpnrouter \
 --net=vpn_nw \
---restart unless-stopped
+--restart=always
 --device /dev/net/tun
 -v <path to vpn provider ovpn/config file(s)>:/vpn \
 -v /etc/localtime:/etc/localtime:ro \
@@ -34,7 +34,7 @@ jemcgrath1/vpnrouter
 The following provides more details on the parameters of the containerL
 * `--name` - Name the container
 * `--net=vpn_nw` IMPORTANT - See Important Notes, you will need to create a *user-defined* network
-* `--restart unless-stopped` - Apply a restart policy
+* `--restart=always` - Apply a restart policy
 * `--device /dev/net/tun` - Use the local tun device
 * `-v /vpn` - The path where vpnrouter can find ovpn/config file(s) from your vpn provider
 * `-v /etc/localtime:/etc/localtime:ro` - Read the localtime (Read Only)
@@ -73,6 +73,14 @@ This can be created by executing the docker command:
 
    *i.e.*  To do this you would need to add the following additional ports to the vpnrouter create statement so that when you connect the transmission container vpnrouter makes the following ports are visible. For example you would add the following ports for Transmission:  
   `-p 9091:9091 -p 51413:51413 -p 51413:51413/udp `
+ <br />
+ <br />
+ With these additional ports added to the vpnrouter container, you could then do something like (using the wonderful (linuxserver images):<br /><br />
+ ` docker create --name=transmission_vpn --net=container:vpnrouter --restart=always -v <path to data>:/config -v <path to downloads>:/downloads -v <path to watch>:/watch -e PGID=<gid> -e PUID=<uid> -e TZ=<timezone> linuxserver/transmission:latest`
+ 
+ The transmission web interface would then be available on TCP 9091 of the **vpnrouter** container, not the transmission container, and all the transmission traffic outside of your network would be going over the vpn!
+ <br /><br />
+ **Enjoy!!**
 
 
 ## Info
